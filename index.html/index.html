@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>孙嘉琦 · 全栈开发工程师 | 个人简历</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f5;
+            font-family: 'Inter', sans-serif;
+            color: #1e2a3e;
+            line-height: 1.45;
+            padding: 40px 24px;
+        }
+
+        /* 主容器 */
+        .resume-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        /* 头部区域 - 现代渐变+双列布局 */
+        .header {
+            background: linear-gradient(135deg, #1a2a3a 0%, #0f1a24 100%);
+            padding: 32px 40px;
+            color: white;
+        }
+
+        .header-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .name-title h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            background: linear-gradient(120deg, #ffffff, #b9e2ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .job-tag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .job-tag span {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(2px);
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 0.5px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.08);
+            padding: 12px 20px;
+            border-radius: 28px;
+            font-size: 0.9rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .contact-info i.emoji {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+
+        /* 主体内容 网格布局 */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 2.3fr;
+            gap: 0;
+        }
+
+        /* 左侧栏 */
+        .sidebar {
+            background: #f9fbfd;
+            padding: 32px 28px;
+            border-right: 1px solid #e6edf2;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #0f2b3b;
+            border-left: 4px solid #3b82f6;
+            padding-left: 14px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .skill-cat {
+            background: white;
+            border-radius: 20px;
+            padding: 12px 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #eef2f8;
+        }
+
+        .skill-cat-header {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #2563eb;
+            margin-bottom: 10px;
+            display: block;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 6px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .skill-badge {
+            background: #eef3fc;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1e40af;
+        }
+
+        .education-detail p {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #0c4e6e;
+        }
+
+        .honor-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .honor-list li {
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .self-eval {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #2c3f4f;
+        }
+
+        /* 右侧栏 */
+        .main-content {
+            padding: 32px 32px 40px 32px;
+            background: white;
+        }
+
+        .project-item, .practice-item {
+            margin-bottom: 28px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #0f172a;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .project-date {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #5b6e8c;
+            background: #f0f4f9;
+            padding: 2px 10px;
+            border-radius: 30px;
+        }
+
+        .tech-stack {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #3b82f6;
+            background: #eef2ff;
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 30px;
+            margin: 8px 0 6px;
+            letter-spacing: 0.2px;
+        }
+
+        .project-desc {
+            font-size: 0.88rem;
+            color: #334155;
+            margin-top: 6px;
+            line-height: 1.48;
+            padding-left: 4px;
+        }
+
+        .project-desc ul {
+            padding-left: 20px;
+            margin-top: 6px;
+        }
+
+        .project-desc li {
+            margin-bottom: 5px;
+        }
+
+        .other-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .other-list li {
+            font-size: 0.88rem;
+            margin-left: 20px;
+        }
+
+        .link-box {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 16px 20px;
+            margin-top: 20px;
+            border: 1px solid #e2edf7;
+        }
+        .link-box p {
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        .link-box a {
+            color: #2563eb;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        hr {
+            margin: 14px 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e0e8f0, transparent);
+        }
+        @media (max-width: 800px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                border-right: 0;
+                border-bottom: 1px solid #e6edf2;
+            }
+            .header-main {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            body {
+                padding: 20px 16px;
+            }
+            .name-title h1 {
+                font-size: 2.2rem;
+            }
+        }
+        .badge-icon {
+            font-size: 0.9rem;
+        }
+        .divider-light {
+            height: 1px;
+            background: #e9eff5;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #7e8b9c;
+            padding: 18px 0 12px;
+            border-top: 1px solid #ecf3f9;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+<div class="resume-container">
+    <!-- 头部信息 -->
+    <div class="header">
+        <div class="header-main">
+            <div class="name-title">
+                <h1>孙嘉琦</h1>
+                <div class="job-tag">
+                    <span>全栈开发工程师</span>
+                    <span>AI应用开发工程师</span>
+                    <span>前端开发工程师</span>
+                </div>
+            </div>
+            <div class="contact-info">
+                <div><span class="emoji">📞</span> 13224104240</div>
+                <div><span class="emoji">✉️</span> 3462735850@qq.com</div>
+                <div><span class="emoji">🎂</span> 22岁 · 女</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- 左侧栏 基本信息/教育/技能/自我评价等 -->
+        <div class="sidebar">
+            <!-- 教育背景 -->
+            <div class="section">
+                <div class="section-title">
+                    <span>🎓</span> 教育背景
+                </div>
+                <div class="education-detail">
+                    <p><strong>大连东软信息学院</strong> · 计算机科学与技术专业 · 本科</p>
+                    <p>2021.09 – 2025.06</p>
+                    <p>核心课程：数据结构、Java/Python/C语言、数据库、计算机网络、OpenHarmony开发、互联网应用开发技术、高级网页设计、Web架构</p>
+                    <p><span class="highlight-text">GPA：3.6/4.0</span> (专业排名前15%)</p>
+                    <ul class="honor-list">
+                        <li>🥈 校级二等奖学金 (2022-2023)</li>
+                        <li>🥉 三等奖学金 (2023-2024)</li>
+                        <li>🏅 优秀学生干部 · 创新创业先进个人</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 专业技能 紧凑版 -->
+            <div class="section">
+                <div class="section-title">
+                    <span>⚙️</span> 专业技能
+                </div>
+                <div class="skill-grid">
+                    <div class="skill-cat"><span class="skill-cat-header">🖥️ 前端核心</span><div class="skill-items"><span class="skill-badge">HTML5/CSS3/JS/TS</span><span class="skill-badge">Vue3+Pinia</span><span class="skill-badge">React</span><span class="skill-badge">Electron</span><span class="skill-badge">Uniapp/Nuxt</span><span class="skill-badge">数据大屏/ECharts</span><span class="skill-badge">DataV/G6/D3</span><span class="skill-badge">Three.js/Canvas/SVG</span><span class="skill-badge">Mermaid</span></div></div>
+                    <div class="skill-cat"><span class="skill-cat-header">🤖 AI与知识库</span><div class="skill-items"><span class="skill-badge">LangChain</span><span class="skill-badge">RAG知识库</span><span class="skill-badge">CodeBuddy/Trae</span><span class="skill-badge">Claude Code/Skill/MCP</span><span class="skill-badge">AI原型设计</span></div></div>
+                    <div class="skill-cat"><span class="skill-cat-header">🔧 后端与数据库</span><div class="skill-items"><span class="skill-badge">Spring Boot/MyBatis-Plus</span><span class="skill-badge">Koa2/Express</span><span class="skill-badge">REST API</span><span class="skill-badge">MySQL/Redis</span><span class="skill-badge">MySQL Workbench</span></div></div>
+                    <div class="skill-cat"><span class="skill-cat-header">📱 移动端&鸿蒙</span><div class="skill-items"><span class="skill-badge">OpenHarmony (ArkTS)</span><span class="skill-badge">Android(Java)</span></div></div>
+                    <div class="skill-cat"><span class="skill-cat-header">🧰 工程化&部署</span><div class="skill-items"><span class="skill-badge">Git/GitHub/Gitee</span><span class="skill-badge">Docker</span><span class="skill-badge">json-server</span><span class="skill-badge">全栈部署/错误调试</span></div></div>
+                </div>
+                <div style="margin-top: 12px; background: #eef2fc; border-radius: 18px; padding: 10px 14px; font-size:0.8rem;">
+                    💡 极强学习力 · AI工程化敏锐度 · 日常使用AI工具链加速开发
+                </div>
+            </div>
+
+            <!-- 自我评价 简练 -->
+            <div class="section">
+                <div class="section-title">
+                    <span>🌟</span> 自我评价
+                </div>
+                <div class="self-eval">
+                    大连东软科班出身，扎实的全栈及可视化底蕴。精通Vue/React/数据大屏生态(ECharts/DataV/G6/D3/Three.js)，同时基于LangChain快速搭建RAG知识库。后端Spring Boot+Koa2+Redis全栈实践。善用AI工具(CodeBuddy/Trae等)提效，热衷前沿技术落地。团队协作与调试能力强，立志成为懂业务、能落地的全栈+AI工程师。
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-title">
+                    <span>🏆</span> 其他实践
+                </div>
+                <ul class="honor-list" style="list-style: disc; padding-left: 20px;">
+                    <li>班级学习委员 · 组织编程小组，班级通过率98%</li>
+                    <li>SOVO大学生创业中心成员，孵化项目 & AI编程讲座</li>
+                    <li>个人开源GitHub仓库「AI-tools」包含LangChain片段、json-server模板及MCP示例</li>
+                    <li>每周跟进AI工程化/前端可视化动态，关注最佳实践</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 右侧主要内容: 项目经历 + 其他成果+作品 -->
+        <div class="main-content">
+            <!-- 项目经历 (精选4项) -->
+            <div class="section">
+                <div class="section-title">
+                    <span>📌</span> 项目经历
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">
+                        智能知识库问答助手（AI + 全栈）
+                        <span class="project-date">2024.09 – 至今</span>
+                    </div>
+                    <div class="tech-stack">LangChain + Koa2 + MySQL + Redis + Vue3 + G6/Three.js</div>
+                    <div class="project-desc">
+                        • 基于LangChain搭建RAG知识库，支持文档上传/切片/向量检索，集成大模型实现问答。<br>
+                        • 后端Koa2提供API，Redis缓存高频问答；前端Vue3构建对话界面；<br>
+                        • 可视化亮点：G6绘制知识图谱，Three.js构建3D节点关系图，直观展示文档关联；<br>
+                        • 使用json-server模拟早期API原型，加速前后端联调。
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">
+                        智慧校园数据大屏系统 (全栈 + 数据大屏)
+                        <span class="project-date">2024.07 – 2024.10</span>
+                    </div>
+                    <div class="tech-stack">Spring Boot + MyBatis-Plus + MySQL + Redis + Vue3 + ECharts/DataV/G6/D3</div>
+                    <div class="project-desc">
+                        • 后端Spring Boot + MyBatis-Plus开发数据API，Redis缓存热点数据；<br>
+                        • 搭建数据大屏，集成ECharts（实时人流量折线图）、DataV（边框/数字翻牌器）、G6（设备拓扑图）、D3.js（自定义关系网络图）；<br>
+                        • 使用MySQL Workbench进行数据库设计，json-server模拟设备数据源前期开发。
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">
+                        京东电商网站仿制 + 小程序版 (前端+跨端)
+                        <span class="project-date">2024.02 – 2024.04</span>
+                    </div>
+                    <div class="tech-stack">Vue3 + Pinia + TypeScript + ElementPlus/Vant + Uniapp + Nuxt + Canvas/SVG</div>
+                    <div class="project-desc">
+                        • 仿制京东PC/移动端网页，使用Uniapp跨端开发微信小程序，核心代码复用率高；<br>
+                        • 数据可视化：Canvas绘制商品热度雷达图，SVG实现优惠券进度条动画；<br>
+                        • 使用json-server搭建mock API，独立完成前后端数据模拟及联调。
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">
+                        OpenHarmony智能备忘录 (鸿蒙原生)
+                        <span class="project-date">2024.03 – 2024.06</span>
+                    </div>
+                    <div class="tech-stack">OpenHarmony + ArkTS + Canvas + DevEco Studio</div>
+                    <div class="project-desc">
+                        • 采用ArkTS声明式开发范式构建鸿蒙原生应用，实现备忘录增删改查、分类标签及定时提醒；<br>
+                        • 集成Canvas手写涂鸦，用户可为笔记添加手绘示意图；<br>
+                        • 荣获课程优秀设计奖，展现了鸿蒙开发与图形绘制能力。
+                    </div>
+                </div>
+                <div class="divider-light"></div>
+            </div>
+
+            <!-- 其他实践与成果浓缩 -->
+            <div class="section">
+                <div class="section-title">
+                    <span>✨</span> 实践荣誉 & 持续输出
+                </div>
+                <div class="other-list" style="margin-bottom: 0;">
+                    <li>📚 班级学习委员：组织编程小组，班级专业通过率提升至98%</li>
+                    <li>🚀 SOVO大学生创业中心：参与项目孵化，组织AI编程讲座，推动技术社群</li>
+                    <li>🐙 个人开源：GitHub “AI-tools” 仓库，收录LangChain代码片段、json-server配置模板及MCP范例，累计20+ stars</li>
+                    <li>📈 持续学习：每周追踪AI工程化/可视化动态，沉淀笔记并输出技术demo</li>
+                </div>
+            </div>
+
+            <!-- 作品链接及附件 -->
+            <div class="link-box">
+                <p>🔗 作品集 & 代码仓库</p>
+                <p>📁 GitHub: <a href="#" target="_blank">github.com/sunjiaqi (示例链接，展示知识库问答、校园大屏、电商小程序源码及json-server mock示例)</a></p>
+                <p>🎥 鸿蒙备忘录演示视频 / 数据大屏Demo: <a href="#">在线预览Demo（校园大屏可视化看板）</a> | 联系可提供详细演示</p>
+                <p style="font-size: 0.75rem; margin-top: 8px;">※ 代码仓库包含 LangChain+RAG 知识库、Vue3数据大屏、Uniapp电商小程序、OpenHarmony备忘录等完整项目。</p>
+            </div>
+            
+            <!-- 一句话亮点：全栈+AI可扩展性 -->
+            <div style="margin-top: 24px; background: linear-gradient(110deg, #f0f7ff, #ffffff); border-radius: 24px; padding: 12px 16px; border: 1px solid #dcebf5;">
+                <p style="font-size: 0.85rem; font-weight: 500;">🏅 技术热情 · 快速上手LangChain/RAG · 全栈部署与可视化最佳实践 —— 致力于AI工程化与前端艺术融合</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        🌟 孙嘉琦 · 全栈/AI开发工程师 · 即时到岗 · 作品所有源码可提供展示
+    </footer>
+</div>
+</body>
+</html>
